@@ -559,29 +559,6 @@ function cursor() {
   loop();
 }
 
-/* ---------- Category hover image ---------- */
-function catFloat() {
-  const f = $('.cfloat');
-  if (!f || !FINE) return;
-  const im = $('img', f);
-  let x = 0, y = 0, cx = 0, cy = 0, run = false;
-  const loop = () => {
-    cx += (x - cx) * 0.14; cy += (y - cy) * 0.14;
-    f.style.left = cx + 'px'; f.style.top = cy + 'px';
-    if (run) requestAnimationFrame(loop);
-  };
-  $$('.crow').forEach(r => {
-    r.addEventListener('mouseenter', e => {
-      im.src = r.dataset.img;
-      if (!run) { cx = x = e.clientX; cy = y = e.clientY; run = true; loop(); }
-      f.classList.add('on');
-    });
-    r.addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
-    r.addEventListener('mouseleave', () => { f.classList.remove('on'); });
-  });
-  $('.clist')?.addEventListener('mouseleave', () => { setTimeout(() => { if (!f.classList.contains('on')) run = false; }, 600); });
-}
-
 /* ---------- Testimonial slider ---------- */
 function quotes() {
   const slides = $$('.qslide');
@@ -613,6 +590,5 @@ contact();
 counters();
 parallax();
 cursor();
-catFloat();
 quotes();
 observe();
