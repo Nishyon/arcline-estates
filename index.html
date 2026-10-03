@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arcline Estates — Homes & Offices</title>
+<meta name="description" content="Arcline Estates: premium villas, apartments and Grade A office space across Ahmedabad, Mumbai, Bengaluru, Pune and GIFT City.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2317352d'/%3E%3Cpath d='M9 31V18h6v13M17 31V9h6v22M25 31V14h6v17' fill='none' stroke='%23f3efe7' stroke-width='2.2'/%3E%3Cpath d='M6 31h28' stroke='%23e07a45' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-l">
+      <span><svg class="i "><use href="#i-shield"/></svg>RERA Reg. PR/GJ/AHMEDABAD/2008/0142</span>
+      <span><svg class="i "><use href="#i-clock"/></svg>Mon – Sat · 9:30 am – 7:00 pm</span>
+    </div>
+    <div class="strip-r">
+      <a href="tel:+917940002200"><span><svg class="i "><use href="#i-phone"/></svg>+91 79 4000 2200</span></a>
+      <a href="mailto:hello@arcline.estate"><span><svg class="i "><use href="#i-mail"/></svg>hello@arcline.estate</span></a>
+    </div>
+  </div>
+</div>
+<header class="header">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="Arcline Estates home">
+  <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#17352d"/><path d="M9 31V18h6v13M17 31V9h6v22M25 31V14h6v17" fill="none" stroke="#f3efe7" stroke-width="2.2" stroke-linejoin="round"/><path d="M6 31h28" stroke="#e07a45" stroke-width="2.6" stroke-linecap="round"/></svg>
+  <span class="logo-text"><b>ARCLINE</b><small>ESTATES</small></span>
+</a>
+    <nav class="nav"><a href="index.html" class="active">Home</a><a href="properties.html">Properties</a><a href="commercial.html">Commercial</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+    <div class="header-cta">
+      <a href="contact.html" class="btn btn-dark">Book a site visit <svg class="i "><use href="#i-arrow"/></svg></a>
+      <button class="burger" aria-label="Open menu"><svg class="i "><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mnav">
+  <div class="mnav-top"><a href="index.html" class="logo" aria-label="Arcline Estates home">
+  <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#17352d"/><path d="M9 31V18h6v13M17 31V9h6v22M25 31V14h6v17" fill="none" stroke="#f3efe7" stroke-width="2.2" stroke-linejoin="round"/><path d="M6 31h28" stroke="#e07a45" stroke-width="2.6" stroke-linecap="round"/></svg>
+  <span class="logo-text"><b>ARCLINE</b><small>ESTATES</small></span>
+</a><button class="mnav-close" aria-label="Close menu"><svg class="i "><use href="#i-close"/></svg></button></div>
+  <nav><a href="index.html" class="active">Home<svg class="i "><use href="#i-arrow"/></svg></a><a href="properties.html">Properties<svg class="i "><use href="#i-arrow"/></svg></a><a href="commercial.html">Commercial<svg class="i "><use href="#i-arrow"/></svg></a><a href="about.html">About<svg class="i "><use href="#i-arrow"/></svg></a><a href="contact.html">Contact<svg class="i "><use href="#i-arrow"/></svg></a></nav>
+  <div class="mnav-foot"><span>+91 79 4000 2200</span><span>hello@arcline.estate</span></div>
+</div>
+<main>
+<section class="hero">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2000&q=75" alt="Modern villa with pool at Shela, Ahmedabad"></div>
+  <div class="wrap hero-inner">
+    <span class="hero-tag"><b>NEW</b> Arcline One, GIFT City — 9 office floors now leasing</span>
+    <h1>Spaces built for the way you <em class="serif">live</em> &amp; <em class="serif">work.</em></h1>
+    <p class="lead">Villas, city apartments and Grade A offices across six Indian cities. Verified listings, transparent pricing and one advisor from first visit to handover.</p>
+    <form class="search" id="hero-search">
+      <div class="search-tabs">
+        <button type="button" class="active" data-status="sale">Buy</button>
+        <button type="button" data-status="lease">Rent</button>
+        <button type="button" data-status="commercial">Commercial</button>
+      </div>
+      <input type="hidden" id="s-status" value="sale">
+      <div class="search-form">
+        <div class="field"><svg class="i "><use href="#i-pin"/></svg><div><label for="s-city">Location</label>
+          <select id="s-city"><option value="">All cities</option><option>Ahmedabad</option><option>Mumbai</option><option>Bengaluru</option><option>Pune</option><option>Gandhinagar</option><option>Goa</option></select></div></div>
+        <div class="field"><svg class="i "><use href="#i-villa"/></svg><div><label for="s-type">Property type</label>
+          <select id="s-type"><option value="">Any type</option><option value="villa">Villa</option><option value="apartment">Apartment</option><option value="house">Independent house</option><option value="office">Office space</option><option value="retail">Retail</option></select></div></div>
+        <div class="field"><svg class="i "><use href="#i-layers"/></svg><div><label for="s-size">Configuration</label>
+          <select id="s-size"><option>Any size</option><option>2 BHK</option><option>3 BHK</option><option>4+ BHK</option><option>Full office floor</option></select></div></div>
+        <button class="btn btn-copper" type="submit"><svg class="i "><use href="#i-search"/></svg> Search</button>
+      </div>
+    </form>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><div class="hstat-ic"><svg class="i "><use href="#i-key"/></svg></div><div><b>1,200+</b><small>Verified listings</small></div></div>
+    <div class="hstat"><div class="hstat-ic"><svg class="i "><use href="#i-tower"/></svg></div><div><b>6.8M sq.ft</b><small>Offices leased</small></div></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="eyebrow">Browse by type</span><h2>From a garden villa to a <em class="serif">full office floor.</em></h2></div>
+      <p class="rv d1">Every listing is visited, photographed and title-checked by our team before it goes live — residential and commercial alike.</p>
+    </div>
+    <div class="cats">
+      <a href="properties.html?type=villa" class="cat rv"><span class="count" data-cat-count="villa">00</span><div class="cat-ic"><svg class="i i-lg"><use href="#i-villa"/></svg></div><h3>Villas</h3><p>Private pools &amp; gardens</p></a>
+      <a href="properties.html?type=apartment" class="cat rv d1"><span class="count" data-cat-count="apartment">00</span><div class="cat-ic"><svg class="i i-lg"><use href="#i-apartment"/></svg></div><h3>Apartments</h3><p>High-rise city living</p></a>
+      <a href="properties.html?type=house" class="cat rv d2"><span class="count" data-cat-count="house">00</span><div class="cat-ic"><svg class="i i-lg"><use href="#i-house"/></svg></div><h3>Houses</h3><p>Independent &amp; townhouses</p></a>
+      <a href="properties.html?type=office" class="cat rv d3"><span class="count" data-cat-count="office">00</span><div class="cat-ic"><svg class="i i-lg"><use href="#i-tower"/></svg></div><h3>Office Spaces</h3><p>Grade A &amp; plug-and-play</p></a>
+      <a href="properties.html?type=retail" class="cat rv d4"><span class="count" data-cat-count="retail">00</span><div class="cat-ic"><svg class="i i-lg"><use href="#i-store"/></svg></div><h3>Retail</h3><p>Showrooms &amp; high street</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec bg-bone">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="eyebrow">Featured listings</span><h2>Handpicked this week</h2></div>
+      <a href="properties.html" class="link-arrow rv d1">View all properties <svg class="i i-sm"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="grid-props" id="featured"></div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap split">
+    <div class="collage rv">
+      <img class="c1" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=75" alt="Living room interior" loading="lazy">
+      <img class="c2" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=75" alt="Modern villa exterior" loading="lazy">
+      <div class="collage-badge"><b>18</b><span>years of trusted<br>property advice</span></div>
+    </div>
+    <div>
+      <span class="eyebrow rv">Why Arcline</span>
+      <h2 class="rv d1" style="margin-top:14px">One accountable team, <em class="serif">start to keys.</em></h2>
+      <p class="lead rv d2" style="margin-top:18px">We don't just list property. Our advisors negotiate, our legal desk checks every title, and our handover team stays with you after registration.</p>
+      <div class="checks">
+        <div class="check rv"><div class="check-ic"><svg class="i "><use href="#i-shield"/></svg></div><div><h4>Title-verified</h4><p>Every listing cleared by our in-house legal desk.</p></div></div>
+        <div class="check rv d1"><div class="check-ic"><svg class="i "><use href="#i-chart"/></svg></div><div><h4>Fair-price reports</h4><p>Comparable sales data shared before you make an offer.</p></div></div>
+        <div class="check rv d2"><div class="check-ic"><svg class="i "><use href="#i-doc"/></svg></div><div><h4>Paperwork handled</h4><p>Agreements, registration and home-loan filing.</p></div></div>
+        <div class="check rv d3"><div class="check-ic"><svg class="i "><use href="#i-key"/></svg></div><div><h4>Snag-free handover</h4><p>A 120-point inspection before you collect the keys.</p></div></div>
+      </div>
+      <a href="about.html" class="btn btn-dark rv">Our story <svg class="i "><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-dark tower-sec" id="tower">
+  <div class="wrap">
+    <div class="tower-grid">
+      <div class="tower-intro rv">
+        <span class="eyebrow">Live availability</span>
+        <h2 style="margin-top:14px">Arcline One,<br><em class="serif">GIFT City.</em></h2>
+        <p>Our 24-storey Grade A flagship. Tap any level of the tower to see its floor plate, rent and status — updated by the leasing team every Monday.</p>
+        <div class="legend">
+          <span><i class="lg-av"></i><b id="tower-avail">0</b>&nbsp;floors available now</span>
+          <span><i class="lg-re"></i>Reserved — under negotiation</span>
+          <span><i class="lg-le"></i>Leased</span>
+        </div>
+      </div>
+      <div class="tower rv d1" aria-label="Arcline One tower">
+        <div class="tower-crown"></div>
+        <div class="tower-body" id="tower-body"></div>
+        <div class="tower-lobby"><i></i><i></i><i></i></div>
+        <div class="tower-ground"></div>
+      </div>
+      <div class="floor-panel rv d2">
+        <div class="fp-top">
+          <div><small>Selected floor</small><h3 id="fp-level">Level 18</h3></div>
+          <span class="status av" id="fp-status">Available</span>
+        </div>
+        <ul class="fp-rows">
+          <li><span>Floor plate</span><b id="fp-area">—</b></li>
+          <li><span>Quoted rent</span><b id="fp-rate">—</b></li>
+          <li><span>Monthly estimate</span><b id="fp-month">—</b></li>
+          <li><span>Capacity</span><b id="fp-seats">—</b></li>
+          <li><span>Primary view</span><b id="fp-view">—</b></li>
+        </ul>
+        <a href="contact.html" id="fp-btn" class="btn btn-copper">Enquire <svg class="i "><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div style="margin-top:90px">
+    <div class="stats">
+      <div class="stat rv"><b><span data-to="5800">0</span><sup>Cr+</sup></b><span>Property value transacted (₹)</span></div>
+      <div class="stat rv d1"><b><span data-to="3400">0</span><sup>+</sup></b><span>Families and businesses housed</span></div>
+      <div class="stat rv d2"><b><span data-to="6.8">0</span><sup>M</sup></b><span>Sq.ft of office space leased</span></div>
+      <div class="stat rv d3"><b><span data-to="18">0</span><sup>yrs</sup></b><span>Of RERA-compliant practice</span></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="sec bg-bone">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="eyebrow">Plan your purchase</span><h2>Home-loan <em class="serif">EMI calculator</em></h2></div>
+      <p class="rv d1">Move the sliders to see your monthly instalment. Our loan desk works with eleven partner banks to secure the best rate.</p>
+    </div>
+    <div class="calc rv" id="calc">
+      <div class="calc-in">
+        <div class="range-row"><label for="c-price">Property price <output id="o-price"></output></label><input type="range" id="c-price" min="20" max="1500" step="5" value="180"><div class="range-meta"><span>₹20 L</span><span>₹15 Cr</span></div></div>
+        <div class="range-row"><label for="c-down">Down payment <output id="o-down"></output></label><input type="range" id="c-down" min="10" max="60" step="1" value="20"><div class="range-meta"><span>10%</span><span>60%</span></div></div>
+        <div class="range-row"><label for="c-rate">Interest rate (p.a.) <output id="o-rate"></output></label><input type="range" id="c-rate" min="7" max="12" step="0.05" value="8.5"><div class="range-meta"><span>7%</span><span>12%</span></div></div>
+        <div class="range-row"><label for="c-years">Loan tenure <output id="o-years"></output></label><input type="range" id="c-years" min="5" max="30" step="1" value="20"><div class="range-meta"><span>5 yrs</span><span>30 yrs</span></div></div>
+      </div>
+      <div class="calc-out">
+        <small>Your monthly EMI</small>
+        <div class="emi" id="o-emi">—</div>
+        <div class="donut-row">
+          <div class="donut"></div>
+          <div class="donut-legend">
+            <div><span><i style="background:var(--sage)"></i>Loan amount</span><b id="o-loan">—</b></div>
+            <div><span><i style="background:var(--copper-2)"></i>Total interest</span><b id="o-int">—</b></div>
+            <div><span><i style="background:#fff"></i>Total payable</span><b id="o-total">—</b></div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-copper">Get pre-approved <svg class="i "><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="eyebrow">Meet the advisors</span><h2>People who know <em class="serif">every street.</em></h2></div>
+      <a href="about.html#team" class="link-arrow rv d1">The full team <svg class="i i-sm"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="agents">
+      <article class="agent rv d1">
+        <div class="agent-img"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=75" alt="Kabir Mehta" loading="lazy">
+          <div class="agent-social"><a href="tel:+917940002200" aria-label="Call"><svg class="i i-sm"><use href="#i-phone"/></svg></a><a href="mailto:hello@arcline.estate" aria-label="Email"><svg class="i i-sm"><use href="#i-mail"/></svg></a><a href="#" aria-label="LinkedIn"><svg class="i i-sm"><use href="#i-in"/></svg></a></div>
+        </div>
+        <div class="agent-body"><h3>Kabir Mehta</h3><p>Director, Luxury Homes</p><small><span>Closed <b>₹1,240 Cr</b></span><span><b>18 yrs</b></span></small></div>
+      </article>
+      <article class="agent rv d2">
+        <div class="agent-img"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=75" alt="Ananya Iyer" loading="lazy">
+          <div class="agent-social"><a href="tel:+917940002200" aria-label="Call"><svg class="i i-sm"><use href="#i-phone"/></svg></a><a href="mailto:hello@arcline.estate" aria-label="Email"><svg class="i i-sm"><use href="#i-mail"/></svg></a><a href="#" aria-label="LinkedIn"><svg class="i i-sm"><use href="#i-in"/></svg></a></div>
+        </div>
+        <div class="agent-body"><h3>Ananya Iyer</h3><p>Head of Commercial Leasing</p><small><span>Closed <b>2.1 M sq.ft</b></span><span><b>14 yrs</b></span></small></div>
+      </article>
+      <article class="agent rv d3">
+        <div class="agent-img"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=75" alt="Rohan D'Souza" loading="lazy">
+          <div class="agent-social"><a href="tel:+917940002200" aria-label="Call"><svg class="i i-sm"><use href="#i-phone"/></svg></a><a href="mailto:hello@arcline.estate" aria-label="Email"><svg class="i i-sm"><use href="#i-mail"/></svg></a><a href="#" aria-label="LinkedIn"><svg class="i i-sm"><use href="#i-in"/></svg></a></div>
+        </div>
+        <div class="agent-body"><h3>Rohan D'Souza</h3><p>Senior Advisor, Mumbai</p><small><span>Closed <b>₹860 Cr</b></span><span><b>11 yrs</b></span></small></div>
+      </article>
+      <article class="agent rv d4">
+        <div class="agent-img"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=75" alt="Meera Shah" loading="lazy">
+          <div class="agent-social"><a href="tel:+917940002200" aria-label="Call"><svg class="i i-sm"><use href="#i-phone"/></svg></a><a href="mailto:hello@arcline.estate" aria-label="Email"><svg class="i i-sm"><use href="#i-mail"/></svg></a><a href="#" aria-label="LinkedIn"><svg class="i i-sm"><use href="#i-in"/></svg></a></div>
+        </div>
+        <div class="agent-body"><h3>Meera Shah</h3><p>Investment & NRI Desk</p><small><span>Closed <b>₹540 Cr</b></span><span><b>9 yrs</b></span></small></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec bg-bone">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="rv"><span class="eyebrow">Client stories</span><h2>Rated 4.9 by 1,100+ clients</h2></div>
+    </div>
+    <div class="quotes">
+      <div class="quote big rv">
+        <div class="stars"><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg></div>
+        <blockquote>“Arcline found us a villa that wasn't even on the market yet, then negotiated eight percent off the asking price. Handover was faultless.”</blockquote>
+        <div class="quote-by"><span class="ava">NP</span><div><b>Nikhil &amp; Priya Patel</b><span>Bought in Shela, Ahmedabad</span></div></div>
+      </div>
+      <div class="quote rv d1">
+        <div class="stars"><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg></div>
+        <blockquote>“We moved 140 people into Arcline One in nine weeks. The fit-out coordination alone saved us a month.”</blockquote>
+        <div class="quote-by"><span class="ava">SR</span><div><b>Sanjay Rao</b><span>COO, Fintech firm · GIFT City</span></div></div>
+      </div>
+      <div class="quote rv d2">
+        <div class="stars"><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg><svg class="i "><use href="#i-star"/></svg></div>
+        <blockquote>“As an NRI buyer I needed someone I could trust from Dubai. Every document was explained on video call.”</blockquote>
+        <div class="quote-by"><span class="ava">FK</span><div><b>Farah Khan</b><span>Apartment in Powai, Mumbai</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-sm">
+  <div class="wrap">
+    <div class="cta rv">
+      <div class="cta-bg"><img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1600&q=75" alt="" loading="lazy"></div>
+      <div>
+        <span class="eyebrow">Talk to an advisor</span>
+        <h2 style="margin-top:14px">Ready to find your next address?</h2>
+        <p>Tell us what you need. An advisor will send a shortlist within 24 hours — free of charge.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-copper">Book a consultation <svg class="i "><use href="#i-arrow"/></svg></a>
+        <a href="tel:+917940002200" class="btn btn-ghost"><svg class="i "><use href="#i-phone"/></svg> Call us</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-about">
+        <a href="index.html" class="logo" aria-label="Arcline Estates home">
+  <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#17352d"/><path d="M9 31V18h6v13M17 31V9h6v22M25 31V14h6v17" fill="none" stroke="#f3efe7" stroke-width="2.2" stroke-linejoin="round"/><path d="M6 31h28" stroke="#e07a45" stroke-width="2.6" stroke-linecap="round"/></svg>
+  <span class="logo-text"><b>ARCLINE</b><small>ESTATES</small></span>
+</a>
+        <p>Homes, offices and investment property across six Indian cities — advised, negotiated and handed over by one accountable team since 2008.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="LinkedIn"><svg class="i i-sm"><use href="#i-in"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg class="i i-sm"><use href="#i-ig"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="i i-sm"><use href="#i-fb"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg class="i i-sm"><use href="#i-yt"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="properties.html?status=sale">Homes for sale</a></li>
+          <li><a href="properties.html?status=lease">Homes for rent</a></li>
+          <li><a href="commercial.html">Office spaces</a></li>
+          <li><a href="properties.html?type=retail">Retail &amp; showrooms</a></li>
+          <li><a href="properties.html?city=Gandhinagar">GIFT City</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Arcline</a></li>
+          <li><a href="about.html#team">Our advisors</a></li>
+          <li><a href="commercial.html#tower">Arcline One</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Head Office</h4>
+        <ul class="foot-contact">
+          <li><svg class="i "><use href="#i-pin"/></svg><span>14th Floor, Arcline House, Sindhu Bhavan Road, Ahmedabad 380059</span></li>
+          <li><svg class="i "><use href="#i-phone"/></svg><a href="tel:+917940002200">+91 79 4000 2200</a></li>
+          <li><svg class="i "><use href="#i-mail"/></svg><a href="mailto:hello@arcline.estate">hello@arcline.estate</a></li>
+        </ul>
+        <form class="news"><input type="email" placeholder="Get new listings by email" aria-label="Email address"><button aria-label="Subscribe"><svg class="i i-sm"><use href="#i-arrow"/></svg></button></form>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> Arcline Estates Pvt. Ltd. Demo project — all listings are fictional.</span>
+      <div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">RERA disclosures</a></div>
+    </div>
+  </div>
+  <div class="foot-word">ARCLINE</div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
