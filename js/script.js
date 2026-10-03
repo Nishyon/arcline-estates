@@ -63,7 +63,7 @@ const ic = (n, c = '') => `<svg class="i ${c}"><use href="#i-${n}"/></svg>`;
 /* ---------- Helpers ---------- */
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-const img = (id, w = 1000) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=75`;
+const img = (id, w = 1000) => `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w}&q=80`;
 
 function inr(n) {
   if (n >= 1e7) return `₹${+(n / 1e7).toFixed(2)} Cr`;
@@ -145,25 +145,26 @@ const priceHTML = p => p.status === 'lease' ? `${inr(p.price)} <small>/ month</s
 
 function cardHTML(p) {
   const specs = isCom(p)
-    ? [['area', `${p.area.toLocaleString('en-IN')} sq.ft`], p.seats ? ['users', `${p.seats} seats`] : ['store', 'Frontage'], ['car', `${p.parking} parking`]]
-    : [['bed', `${p.beds} Beds`], ['bath', `${p.baths} Baths`], ['area', `${p.area.toLocaleString('en-IN')} sq.ft`]];
+    ? [['area', `${p.area.toLocaleString('en-IN')} sq.ft`], p.seats ? ['users', `${p.seats} seats`] : ['store', 'Frontage']]
+    : [['bed', `${p.beds} Bd`], ['bath', `${p.baths} Ba`], ['area', `${p.area.toLocaleString('en-IN')} sq.ft`]];
   const fav = favs().includes(p.id);
   return `
   <article class="pcard rv" data-id="${p.id}">
     <div class="pcard-media">
-      <img src="${img(p.img, 800)}" alt="${p.title}" loading="lazy">
+      <img src="${img(p.img, 900)}" alt="${p.title}" loading="lazy">
       <div class="badges">
         <span class="badge ${p.status}">For ${p.status === 'sale' ? 'Sale' : 'Lease'}</span>
         ${p.tag ? `<span class="badge">${p.tag}</span>` : ''}
       </div>
       <button class="fav ${fav ? 'on' : ''}" aria-label="Save property">${ic('heart', 'i-sm')}</button>
-      <div class="pcard-price">${priceHTML(p)}</div>
     </div>
     <div class="pcard-body">
-      <span class="pcard-type">${TYPE_LABEL[p.type]}</span>
+      <div class="pcard-meta"><b>${TYPE_LABEL[p.type]}</b><span>${p.locality}, ${p.city}</span></div>
       <h3>${p.title}</h3>
-      <p class="pcard-loc">${ic('pin')}${p.locality}, ${p.city}</p>
-      <ul class="specs">${specs.map(([i, t]) => `<li>${ic(i)}${t}</li>`).join('')}</ul>
+      <div class="pcard-foot">
+        <ul class="specs">${specs.map(([i, t]) => `<li>${ic(i)}${t}</li>`).join('')}</ul>
+        <span class="pcard-price">${priceHTML(p)}</span>
+      </div>
     </div>
   </article>`;
 }
@@ -206,7 +207,7 @@ function openModal(p) {
     m = document.createElement('div');
     m.id = 'modal';
     m.className = 'modal';
-    m.innerHTML = '<div class="modal-bg"></div><div class="modal-box" role="dialog" aria-modal="true"></div>';
+    m.innerHTML = '<div class="modal-bg"></div><div class="modal-box" role="dialog" aria-modal="true" data-lenis-prevent></div>';
     document.body.append(m);
     m.addEventListener('click', e => { if (e.target.closest('.modal-bg, .modal-x')) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
@@ -223,7 +224,7 @@ function openModal(p) {
       <div class="m-thumbs">${gallery.map((g, i) => `<button class="${i ? '' : 'on'}" data-g="${g}"><img src="${img(g, 300)}" alt=""></button>`).join('')}</div>
     </div>
     <div class="m-info">
-      <div class="badges" style="position:static"><span class="badge ${p.status}">For ${p.status === 'sale' ? 'Sale' : 'Lease'}</span>${p.tag ? `<span class="badge" style="background:var(--bone)">${p.tag}</span>` : ''}</div>
+      <div class="badges"><span class="badge ${p.status}">For ${p.status === 'sale' ? 'Sale' : 'Lease'}</span>${p.tag ? `<span class="badge" style="background:var(--sand)">${p.tag}</span>` : ''}</div>
       <h2>${p.title}</h2>
       <p class="pcard-loc">${ic('pin')}${p.locality}, ${p.city} · ${TYPE_LABEL[p.type]}</p>
       <div class="m-price">${priceHTML(p)}</div>
@@ -231,7 +232,7 @@ function openModal(p) {
       <p class="m-desc">${p.desc}</p>
       <div class="m-amen">${p.amen.map(a => `<span>${ic('check')}${a}</span>`).join('')}</div>
       <div class="m-actions">
-        <a href="${visit}" class="btn btn-copper">Schedule a visit ${ic('arrow')}</a>
+        <a href="${visit}" class="btn btn-dark">Schedule a visit ${ic('arrow')}</a>
         <a href="tel:+917940002200" class="btn btn-ghost">${ic('phone')} Call agent</a>
       </div>
     </div>`;
@@ -241,13 +242,13 @@ function openModal(p) {
     $('.m-main img', m).src = img(b.dataset.g, 1400);
   }));
   m.classList.add('open');
-  document.body.style.overflow = 'hidden';
+  lockScroll(true);
 }
 function closeModal() {
   const m = $('#modal');
   if (!m) return;
   m.classList.remove('open');
-  document.body.style.overflow = '';
+  lockScroll(false);
 }
 
 /* ---------- Reveal on scroll ---------- */
@@ -255,7 +256,7 @@ const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries =
   entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }) : null;
 function observe(root = document) {
-  $$('.rv:not(.in)', root).forEach(el => io ? io.observe(el) : el.classList.add('in'));
+  $$('.rv:not(.in), .ri:not(.in)', root).forEach(el => io ? io.observe(el) : el.classList.add('in'));
 }
 
 /* ---------- Counters ---------- */
@@ -278,13 +279,20 @@ function counters() {
 /* ---------- Header + mobile nav ---------- */
 function chrome() {
   const h = $('.header');
-  const onScroll = () => h && h.classList.toggle('scrolled', scrollY > 10);
+  let lastY = scrollY;
+  const onScroll = () => {
+    if (!h) return;
+    const y = scrollY;
+    h.classList.toggle('scrolled', y > 40);
+    h.classList.toggle('hide', y > 400 && y > lastY && !document.body.classList.contains('locked'));
+    lastY = y;
+  };
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
   const mnav = $('.mnav');
-  $('.burger')?.addEventListener('click', () => { mnav.classList.add('open'); document.body.style.overflow = 'hidden'; });
-  $('.mnav-close')?.addEventListener('click', () => { mnav.classList.remove('open'); document.body.style.overflow = ''; });
+  $('.burger')?.addEventListener('click', () => { mnav.classList.add('open'); lockScroll(true); });
+  $('.mnav-close')?.addEventListener('click', () => { mnav.classList.remove('open'); lockScroll(false); });
 
   $$('.news').forEach(f => f.addEventListener('submit', e => {
     e.preventDefault();
@@ -498,7 +506,102 @@ function contact() {
   $('#again')?.addEventListener('click', () => { form.reset(); form.closest('.form').classList.remove('sent'); });
 }
 
+/* ---------- Smooth scroll + scroll lock ---------- */
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
+let lenis = null;
+function smooth() {
+  if (REDUCED || !window.Lenis) return;
+  lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 1 });
+  const raf = t => { lenis.raf(t); requestAnimationFrame(raf); };
+  requestAnimationFrame(raf);
+}
+function lockScroll(on) {
+  document.body.classList.toggle('locked', on);
+  document.body.style.overflow = on ? 'hidden' : '';
+  if (lenis) on ? lenis.stop() : lenis.start();
+}
+
+/* ---------- Parallax images ---------- */
+function parallax() {
+  const els = $$('[data-speed]');
+  if (!els.length || REDUCED) return;
+  const tick = () => {
+    const vh = innerHeight;
+    els.forEach(el => {
+      const r = el.parentElement.getBoundingClientRect();
+      if (r.bottom < -100 || r.top > vh + 100) return;
+      const off = (r.top + r.height / 2 - vh / 2) * -(+el.dataset.speed);
+      el.style.transform = `translate3d(0, ${off.toFixed(1)}px, 0)`;
+    });
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+/* ---------- Custom cursor ---------- */
+function cursor() {
+  const c = $('.cursor');
+  if (!c || !FINE) return;
+  let x = -100, y = -100, cx = x, cy = y;
+  addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; c.classList.add('on'); }, { passive: true });
+  document.addEventListener('mouseleave', () => c.classList.remove('on'));
+  document.addEventListener('mouseover', e => {
+    c.classList.toggle('view', !!e.target.closest('.pcard') && !e.target.closest('.fav'));
+    c.classList.toggle('hide', !!e.target.closest('a, button, input, select, textarea, .floor, .crow, [data-room]') && !e.target.closest('.pcard'));
+  });
+  const loop = () => {
+    cx += (x - cx) * 0.2; cy += (y - cy) * 0.2;
+    c.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+    requestAnimationFrame(loop);
+  };
+  loop();
+}
+
+/* ---------- Category hover image ---------- */
+function catFloat() {
+  const f = $('.cfloat');
+  if (!f || !FINE) return;
+  const im = $('img', f);
+  let x = 0, y = 0, cx = 0, cy = 0, run = false;
+  const loop = () => {
+    cx += (x - cx) * 0.14; cy += (y - cy) * 0.14;
+    f.style.left = cx + 'px'; f.style.top = cy + 'px';
+    if (run) requestAnimationFrame(loop);
+  };
+  $$('.crow').forEach(r => {
+    r.addEventListener('mouseenter', e => {
+      im.src = r.dataset.img;
+      if (!run) { cx = x = e.clientX; cy = y = e.clientY; run = true; loop(); }
+      f.classList.add('on');
+    });
+    r.addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; });
+    r.addEventListener('mouseleave', () => { f.classList.remove('on'); });
+  });
+  $('.clist')?.addEventListener('mouseleave', () => { setTimeout(() => { if (!f.classList.contains('on')) run = false; }, 600); });
+}
+
+/* ---------- Testimonial slider ---------- */
+function quotes() {
+  const slides = $$('.qslide');
+  if (!slides.length) return;
+  const bar = $('.qs-bar i'), count = $('.qs-count b');
+  let i = 0, timer;
+  const go = n => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => s.classList.toggle('on', k === i));
+    count.textContent = String(i + 1).padStart(2, '0');
+    bar.classList.remove('run'); void bar.offsetWidth; bar.classList.add('run');
+    clearTimeout(timer);
+    timer = setTimeout(() => go(i + 1), 7000);
+  };
+  $('.qs-prev').addEventListener('click', () => go(i - 1));
+  $('.qs-next').addEventListener('click', () => go(i + 1));
+  go(0);
+}
+
 /* ---------- Boot ---------- */
+smooth();
 chrome();
 home();
 listings();
@@ -507,4 +610,8 @@ emi();
 floorPlan();
 contact();
 counters();
+parallax();
+cursor();
+catFloat();
+quotes();
 observe();
