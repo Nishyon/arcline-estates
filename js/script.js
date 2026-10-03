@@ -472,6 +472,7 @@ function floorPlan() {
   $$('[data-room]').forEach(el => {
     el.addEventListener('mouseenter', () => hl(el.dataset.room, true));
     el.addEventListener('mouseleave', () => hl(el.dataset.room, false));
+    el.addEventListener('click', () => { $$('[data-room].hl').forEach(x => x.classList.remove('hl')); hl(el.dataset.room, true); });
   });
 }
 
